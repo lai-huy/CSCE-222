@@ -1,1 +1,4 @@
 Textbook.pdf
+*.log
+*.aux
+*.synctex.gz
