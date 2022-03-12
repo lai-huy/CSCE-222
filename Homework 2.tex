@@ -1,0 +1,282 @@
+% Comment lines start with %
+% LaTeX commands start with \
+% This template was provided by Jennifer Welch for CSCE 222-200, Honors, Spring 2015
+
+\documentclass[12pt]{article}  % This is an article with font size 12-point
+
+% Packages add features
+\usepackage{times}     % font choice
+\usepackage{amsmath}   % American Mathematical Association math formatting
+\usepackage{amsthm}    % nice formatting of theorems
+\usepackage{amssymb}
+\usepackage{latexsym}  % provides some more symbols
+\usepackage{fullpage}  % uses most of the page (1-inch margins)
+\usepackage{etoolbox}
+\AtBeginEnvironment{align}{\setcounter{equation}{0}}
+
+\setlength{\parskip}{.1in}  % increase the space between paragraphs
+
+\renewcommand{\baselinestretch}{1.1}  % increase the space between lines
+
+% Convenient renaming of symbols for logic formulas
+\newcommand{\NOT}{\neg}
+\newcommand{\AND}{\wedge}
+\newcommand{\OR}{\vee}
+\newcommand{\XOR}{\oplus}
+\newcommand{\IMPLIES}{\rightarrow}
+\newcommand{\IFF}{\leftrightarrow}
+
+% Actual content starts here.
+\begin{document}
+
+\begin{center}         % center all the material between begin and end
+{\large                % use larger font
+CSCE 222 (Carlisle), Discrete Structures for Computing \\  % \\ is line break
+Spring 2022 \\
+Homework 2}
+\end{center}
+\rule{6in}{.1pt}       % horizontal line 6 inches long and .1 point high
+\begin{center}
+{\large
+Type your name below the pledge to sign\\
+On my honor, as an Aggie, I have neither given nor received unauthorized aid on this academic work.\\
+HUY QUANG LAI}
+\end{center}
+
+% blank line separates paragraphs.  First line of a paragraph is automatically
+% indented.  
+
+\rule{6in}{.1pt}       % horizontal line 6 inches long and .1 point high
+                    
+\noindent              % don't indent
+{\bf Instructions:}    % \bf makes text boldface
+                       % \em makes text emphasized (italics)
+
+\begin{itemize}        % makes an itemized list
+\item The exercises are from the textbook.  You are encouraged to work
+      extra problems to aid in your learning; remember, the solutions to 
+      the odd-numbered problems are in the back of the book.
+\item Grading will be based on correctness, clarity, and whether your
+      solution is of the appropriate length.
+\item Always justify your answers.
+\item Don't forget to acknowledge all sources of assistance in the section below, and write up your solutions on your own.
+\item {\em Turn in .pdf file to Gradescope by the start of class on Monday, January 31, 2022.} It is simpler to put each problem on its own page using the LaTeX clearpage command.
+\end{itemize}
+
+\rule{6in}{.1pt}       % horizontal line 6 inches long and .1 point high
+
+{\bf Help Received:}    % \bf makes text boldface
+\begin{itemize}
+    \item Discrete Mathematics and Its Applications, 8th Edition
+\end{itemize}
+
+\rule{6in}{.1pt}       % horizontal line 6 inches long and .1 point high
+\clearpage
+\noindent
+{\bf LaTeX hints:}  Read this .tex file for some explanations that are in
+the comments.
+
+Math formulas are enclosed in \$ signs, e.g., {\tt \$x + y = z\$}
+becomes $x + y = z$.
+
+Logical operators: $\NOT, \AND, \OR, \XOR, \IMPLIES, \IFF$.
+
+Here is a truth table using the ``tabular'' environment:
+
+\begin{center}
+\begin{tabular}{|c|c|}  % two columns, both centered (c), 
+                        % divided by vertical lines (|)
+\hline                  % horizontal line
+$p$ & $\NOT p$ \\       % separate column entries with &
+\hline
+\hline
+T & F \\
+\hline
+F & T \\
+\hline
+\end{tabular}
+\end{center}
+
+
+
+\rule{6in}{.1pt}       % horizontal line 6 inches long and .1 point high
+
+%---------------------------------------------------------------------
+
+% \subsection makes a subsection heading; * leaves it unnumbered.
+% (Usually subsections are inside sections, but the \section command
+% used a font that was larger than I wanted.)
+
+
+%--------------------------------------------------------------------
+
+\subsection*{Exercises for Section 1.5:}     
+
+\noindent{\bf{16(e): (2 pt)}}
+
+\noindent{A discrete mathematics class contains 1 mathematics major who is a freshman, 12 mathematics majors who are sophomores, 15 computer science majors who are sophomores, 2 mathematics majors who are juniors, 2 computer science majors who are juniors, and 1 computer science major who is a senior. Express each of these statements in terms of quantifiers and then determine its truth value.}
+
+\noindent{There is a major such that there is a student in the class in every year of study with that major.}
+\newline
+Let $In(x,m,y)$ be the statement ``If student $x$ is in major $m$ and year $y$''\newline
+$\exists m\forall y\exists xIn(x,m,y)$\newline
+False, because mathematics majors do not have a senior and computer science majors do not have a freshman.
+
+\noindent{\bf{32(d): (2 pt)}}
+
+\noindent{Express the negations of each of these statements so that all negation symbols immediately precede predicates}
+
+\noindent{$\forall{y}\exists{x}\exists{z}(T(x,y,z)\lor Q(x,y))$}\newline
+$\neg{(\forall{y}\exists{x}\exists{z}(T(x,y,z)\lor Q(x,y)))}$\newline
+$\exists{y}\forall{x}\forall{z}\neg{(T(x,y,z)\OR{Q(x,y)})}$\newline
+$\exists{y}\forall{x}\forall{z}(\neg{T(x,y,z)}\AND{\neg{Q(x,y)}})$
+
+\noindent{\bf{44: (2 pt)}}
+Use quantifiers and logical connectives to express the fact that a quadratic polynomial with real number coefficients has at most two real roots.
+\newline
+$\forall a\forall b\forall c[\exists x\exists y((ax^2+bx+c=0)\lor(ay^2+by+c=0))\lor(\forall z(az^2+bz+c=0)\IMPLIES(z=x \lor z=y)]$
+
+\clearpage
+
+%----------------------------------------
+
+\subsection*{Exercises for Section 1.6:}     
+
+\noindent{\bf{10(a,c,e): (2 point)}}
+\newline
+For each of these sets of premises, what relevant conclusion or conclusions can be drawn? Explain the rules of inference used to obtain each conclusion from the premises.\newline
+\newline
+``If I play hockey, then I am sore the next day.” ``I use the whirlpool if I am sore.” ``I did not use the whirlpool.”\newline
+\newline
+Let $p$ = ``I played hockey yesterday"\newline
+Let $q$ = ``I am sore today."\newline
+Let $r$ = ``I use the whirlpool today"
+\begin{align}
+    p\to q  & \textrm{} & Premise \\
+    q\to r  & \textrm{} & Premise \\
+    \neg{r} & \textrm{} & Premise \\
+    \neg{q} & \textrm{} & \textrm{Modus tollens from (2) and (3)} \\
+    \neg{p} & \textrm{} & \textrm{Modus tollens from (1) and (4)}
+\end{align}
+(4) = ``I am not sore today", (5) = ``I did not play hockey yesterday."\newline
+\newline
+``All insects have six legs.” ``Dragonflies are insects.” ``Spiders do not have six legs.” ``Spiders eat dragonflies.”\newline
+\newline
+Let $P(x)$ be ``$x$ are insects"\newline
+Let $Q(x)$ be ``$x$ have six legs."\newline
+Let $R(x,y)$ be ``$x$ eats $y$.
+\begin{align}
+    \setcounter{equation}{0}
+    \forall x(P(x)\to Q(x))                                         & \textrm{} & Premise \\
+    P(\textrm{Dragonflies})                                         & \textrm{} & Premise \\
+    \neg{Q(\textrm{Spiders})}                                       & \textrm{} & Premise \\
+    R(\textrm{Spiders}, \textrm{Dragonflies})                       & \textrm{} & Premise \\
+    P(\textrm{Dragonflies})\to Q(\textrm{Dragonflies}) & \textrm{}  & \textrm{Universal instantiation from (1)} \\
+    P(\textrm{Spiders})\to Q(\textrm{Spiders})                      & \textrm{} & \textrm{Universal instantiation from (1)} \\
+    Q(\textrm{Dragonflies})                                         & \textrm{} & \textrm{Modus ponens from (2) and (5)} \\
+    \neg{P(\textrm{Spiders})}                                       & \textrm{} & \textrm{Modus tollens from (3) and (6)}
+\end{align}
+\newline
+(7) = ``Dragonflies have six legs", (8) = ``Spiders are not insects"
+\clearpage
+\noindent{``All foods that are healthy to eat do not taste good.” ``Tofu is healthy to eat.” ``You only eat what tastes good.” ``You do not eat tofu.” ``Cheeseburgers are not healthy to eat.”}\newline
+Let $P(x)$ = ``$x$ is healthy to eat"\newline
+Let $Q(x)$ = ``$x$ tastes good"\newline
+Let $R(x)$ = ``You eat $x$"
+\begin{align}
+    \forall x(P(x)\to\neg{Q(x)})                & \textrm{} & Premise \\
+    P(\textrm{Tofu})                            & \textrm{} & Premise \\
+    \forall x(R(x)\to{Q(x)})                    & \textrm{} & Premise \\
+    \neg{R(\textrm{Tofu})}                      & \textrm{} & Premise \\
+    \neg{P(\textrm{Cheeseburgers})}             & \textrm{} & Premise \\
+    P(\textrm{Tofu})\to\neg{Q(\textrm{Tofu})}   & \textrm{} & \textrm{Universal instantiation from (1)} \\
+    \neg{Q(\textrm{Tofu})}                      & \textrm{} & \textrm{Modus ponens from (6) and (2)}
+\end{align}
+(7) = ``Tofu does not taste good''\newline
+\newline
+\noindent{\bf{16(a-c): (2 point)}}
+\newline
+For each of these arguments determine whether the argument is correct or incorrect and explain why.\newline
+\newline
+Everyone enrolled in the university has lived in a dormitory. Mia has never lived in a dormitory. Therefore, Mia is not enrolled in the university.\newline
+True, because if Mia is enrolled in the university, then she must have lived in a dormitory. This contradicts the statement "Mia has never lived in a dormitory." Therefore, Mia must not be enrolled in the university.\newline
+\newline
+A convertible car is fun to drive. Isaac’s car is not a convertible. Therefore, Isaac’s car is not fun to drive.\newline
+False, fallacy of affirming the conclusion. It is known that all convertible cars are fun to drive, but there is no information about unconvertible cars. \newline
+\newline
+Quincy likes all action movies. Quincy likes the movie Eight Men Out. Therefore, Eight Men Out is an action movie.\newline
+False, Quincy likes all action movies, but also can like another movies. It is not said Quincy likes only action movie, so Eight Men Out can appear to be not action movie.
+\clearpage
+\noindent{\bf{24: (2 point)}}
+\\ Note that the extra parentheses on the last line are a typo, not the error.\\
+Identify the error or errors in this argument that supposedly shows that if $\forall x(P(x)\OR Q(x))$ is true then $\forall xP(x)\OR \forall xQ(x)$ is true.
+\begin{enumerate}
+    \item Valid
+    \item Valid
+    \item Error: Simplification is from an $\AND$ statement
+    \item Valid
+    \item Error: Simplification is from an $\AND$ statement
+    \item Valid
+    \item Error: Conjunction yields an $\AND$ statement
+\end{enumerate}
+
+\noindent{\bf{28: (2 point)}}
+Use rules of inference to show that if $\forall x(P(x)\AND{Q(x)})$ and $\forall x((\neg{P(x)}\OR{Q(x)})\to{R(x)})$ are true, then $\forall x(\neg{R(x)}\IMPLIES{P(x)})$ is also true, where the domains of all quantifiers are the same.
+\begin{enumerate}
+    \item $\forall x(P(x)\AND{Q(x)})$\hspace{30mm}Premise
+    \item $\forall x((\neg{P(x)}\OR{Q(x)})\to{R(x)})$\hspace{9mm}Premise
+    \item $P(c)\AND{Q(c)}$\hspace{39mm}Universal instantiation from (1)
+    \item $(\neg{P(c)}\OR{Q(c)})\to{R(c)}$\hspace{18mm}Universal instantiation from (2)
+    \item $\neg{(\neg{P(c)}\OR{Q(c)})}\OR{R(c)}$\hspace{17mm}Conditional
+    \item $(P(c)\AND{\neg{Q(c)}})\OR{R(c)}$\hspace{20mm}De Morgan's Law
+    \item $\neg{P(c)\OR{R(c)}}$\hspace{36mm}Resolution from (2) and (6).
+    \item $R(c)\OR{\neg{P(c)}}$\hspace{36mm}Communitive
+    \item $\neg{R(c)}\to{P(c)}$\hspace{34mm}Conditional
+    \item $\forall x(\neg{R(x)\to{P(x)}})$\hspace{25mm}Universal generalization from (9)
+\end{enumerate}
+$\blacksquare$
+\clearpage
+\subsection*{Exercises for Section 1.7:}     
+
+\noindent{\bf{7: (2 points)}}\newline
+Use a direct proof to show that every odd integer is the difference of two squares. [Hint: Find the difference of the squares of $k+1$ and $k$ where $k$ is a positive integer.]\newline
+\newline
+Because $n$ is odd, we can write $n=2k+1$ for some integer $k$.\newline
+Then $(k+1)^2-k^2=k^2+2k+1-k^2=2k+1=n$\newline
+$\blacksquare$
+
+\noindent{\bf{20(a-b): (2 points)}}\newline
+\noindent{Prove that if $n$ is an integer and $3n+2$ is even, then $n$ is even using a proof by contraposition.}\newline
+Let $n$ be an odd integer.\newline
+$n=2m+1,m\in\mathbb{Z}$\newline
+\begin{align*}
+    3n+2    & =3(2m+1)+2\\
+            & =6m+3+2   \\
+            & =6m+4+1   \\
+            & =2(3m+2)+1\\
+\end{align*}
+The expression $2(3m+2)+1$ forces $3m+2$ to be an odd integer.
+Therefore, when $n$ is odd, the expression $3n+2$ is odd.\newline
+$\blacksquare$\newline
+\newline
+a proof by contradiction.\newline
+Assume that when $3n+2$ is even.\newline
+Assume that $n$ is odd.
+$n=2m+1,m\in\mathbb{Z}$\newline
+\begin{align*}
+    3n+2    & = 3(2m+1)+2 \\
+            & = 6m+3+2    \\
+            & = 6m+4+1    \\
+            & = 2(3m+2)+1
+\end{align*}
+The expression $2(3m+2)+1$ forces $3m+2$ to be an odd integer.\newline
+This contradictions the assumption made in step 1 that $3m+2$ is even.\newline
+$\blacksquare$
+\clearpage
+\noindent{\bf{26: (2 points)}}
+Show that at least three of any 25 days chosen must fall in the same month of the year.\newline
+There are 12 months in a year.\newline
+Suppose we are given 25 distinct days and no three of them fall in the same month.\newline
+Then at most 2 fall in each month, so we calculate that we have been given at most 2×12=24 days.\newline
+This is the contradiction that proves our assumption that no three of them fall in the same month must be false.
+\end{document}

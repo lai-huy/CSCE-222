@@ -1,0 +1,309 @@
+% Comment lines start with %
+% LaTeX commands start with \
+% This template was provided by Jennifer Welch for CSCE 222-200, Honors, Spring 2015
+
+\documentclass[12pt]{article}  % This is an article with font size 12-point
+
+% Packages add features
+\usepackage{times}      % font choice
+\usepackage{amsmath}    % American Mathematical Association math formatting
+\usepackage{amsthm}     % nice formatting of theorems
+\usepackage{amssymb}    % provides some more symbols
+\usepackage{latexsym}   % provides some more symbols
+\usepackage{fullpage}   % uses most of the page (1-inch margins)
+
+\setlength{\parskip}{.1in}  % increase the space between paragraphs
+
+\renewcommand{\baselinestretch}{1.1}  % increase the space between lines
+
+% Convenient renaming of symbols for logic formulas
+\newcommand{\NOT}{\neg}
+\newcommand{\AND}{\wedge}
+\newcommand{\OR}{\vee}
+\newcommand{\XOR}{\oplus}
+\newcommand{\IMPLIES}{\rightarrow}
+\newcommand{\IFF}{\leftrightarrow}
+
+% Actual content starts here.
+\begin{document}
+
+\begin{center}         % center all the material between begin and end
+{\large                % use larger font
+CSCE 222 (Carlisle), Discrete Structures for Computing \\  % \\ is line break
+Spring 2022 \\
+Homework 1}
+\end{center}
+\rule{6in}{.1pt}       % horizontal line 6 inches long and .1 point high
+\begin{center}
+{\large
+Type your name below the pledge to sign\\
+On my honor, as an Aggie, I have neither given nor received unauthorized aid on this academic work.\\
+HUY QUANG LAI}
+\end{center}
+
+% blank line separates paragraphs.  First line of a paragraph is automatically
+% indented.  
+
+\rule{6in}{.1pt}       % horizontal line 6 inches long and .1 point high
+                    
+\noindent              % don't indent
+{\bf Instructions:}    % \bf makes text boldface
+                       % \em makes text emphasized (italics)
+
+\begin{itemize}        % makes an itemized list
+\item The exercises are from the textbook.  You are encouraged to work
+      extra problems to aid in your learning; remember, the solutions to 
+      the odd-numbered problems are in the back of the book.
+\item Grading will be based on correctness, clarity, and whether your
+      solution is of the appropriate length.
+\item Always justify your answers.
+\item Don't forget to acknowledge all sources of assistance in the section below, and write up your solutions on your own.
+\item {\em Turn in .pdf file to Gradescope by the start of class on Monday, January 24, 2022.} It is simpler to put each problem on its own page using the LaTeX clearpage command.
+\end{itemize}
+
+\rule{6in}{.1pt}       % horizontal line 6 inches long and .1 point high
+
+{\bf Help Received:}    % \bf makes text boldface
+\begin{itemize}
+\item Discrete Mathematics and Its Applications, 8th Edition
+\end{itemize}
+
+\rule{6in}{.1pt}       % horizontal line 6 inches long and .1 point high
+\clearpage
+\noindent
+{\bf LaTeX hints:}  Read this .tex file for some explanations that are in
+the comments.
+
+Math formulas are enclosed in \$ signs, e.g., {\tt \$x + y = z\$}
+becomes $x + y = z$.
+
+Logical operators: $\NOT, \AND, \OR, \XOR, \IMPLIES, \IFF$.
+
+Here is a truth table using the ``tabular'' environment:
+
+\begin{center}
+\begin{tabular}{|c|c|}  % two columns, both centered (c), 
+                        % divided by vertical lines (|)
+\hline                  % horizontal line
+$p$ & $\NOT p$ \\       % separate column entries with &
+\hline
+\hline
+T & F \\
+\hline
+F & T \\
+\hline
+\end{tabular}
+\end{center}
+
+
+
+\rule{6in}{.1pt}       % horizontal line 6 inches long and .1 point high
+
+%---------------------------------------------------------------------
+
+% \subsection makes a subsection heading; * leaves it unnumbered.
+% (Usually subsections are inside sections, but the \section command
+% used a font that was larger than I wanted.)
+\subsection*{Exercises for Section 1.1:}     
+
+\noindent{\bf{8(e): (1 pt)}}
+\newline
+False.\newline
+This statement would imply that Smartphone A has more RAM than itself which is impossible.
+
+\noindent{\bf{12(h): (1 pt)}}
+\newline
+The votes have not been counted or the election has not been decide and the votes are counted.
+
+\noindent{
+    \bf{29(b): (1 pt)}
+}                                   \newline
+\noindent{
+    $p$ = ``There is a quiz."       \newline
+    $q$ = ``I will go to class."
+}
+
+\begin{align*}
+    \textrm{Converse: } & \textrm{If I come to class, then there will be a quiz.} \\
+    \textrm{Contrapositive: } & \textrm{If I do not go to class, then there will not be a quiz.} \\
+    \textrm{Inverse: } & \textrm{If there is not a quiz, then I will not come to class.}
+\end{align*}
+
+\noindent{\bf{34(f): (2 pts)}}
+
+\begin{tabular}{|c|c|c|c|c|}  % two columns, both centered
+                        % divided by vertical lines (|)
+\hline                  % horizontal line
+$p$ & $q$ & $p\IFF q$ & $p\IFF\NOT q$ & 34(f)\\       % separate column entries with &
+\hline
+F & F & T & F & T\\
+\hline
+F & T & F & T & T\\
+\hline
+T & F & F & T & T\\
+\hline
+T & T & T & F & T\\
+\hline
+\end{tabular}
+\clearpage
+
+%--------------------------------------------------------------------
+
+\subsection*{Exercises for Section 1.2:}     
+
+\noindent{\bf{10: (1 pt)}}
+\newline
+These system specifications are consistent\newline
+The system is not being upgraded.\newline
+The user can access the file system.\newline
+The user can save new files.\newline
+
+\noindent{\bf{18(c): (1 pt)}}
+\newline
+The Queen who never lies can state this statement.\newline
+Treasure 1 is empty by the statement on Treasure 2.\newline
+Treasure 2 is full by the statement on Treasure 3.\newline
+Treasure 3 is full by the fact that two out of three treasures are full.
+
+\noindent{\bf 38: (1 pt)}
+\begin{enumerate}
+    \item $\displaystyle K\OR H$
+    \item $\displaystyle R \XOR V$
+    \item $\displaystyle A \AND R$
+    \item $\displaystyle V \IFF K$
+    \item $\displaystyle H \AND (A \AND K)$
+\end{enumerate}
+You can determine if the 5 members are chatting.
+\newline
+If Kevin is chatting, then Vijay is chatting by statement 4.
+If Vijay is chatting, then Randy is not chatting by statement 2.
+If Randy is not chatting, then Abby is not chatting by statement 3.
+If Abby is not chatting, then Heather is not chatting by statement 5.
+
+\clearpage
+\noindent{\bf 40a: (2 pts)}
+\newline
+Know: Exactly one person is True
+\newline
+Statements:
+\begin{enumerate}
+    \item Alice claims Carlos did it
+    \item John claims he did not do it.
+    \item Carlos claims Diana did it.
+    \item Diana claims that Carlos is false.
+\end{enumerate}
+John is the hacker.\newline
+There's a logical inconsistency for the other options.
+
+If Alice is the one telling the truth, then Carlos is guilty, and he must be lying about Diana. Because of this, Diana is telling the truth. However, only one truth teller can exist so Alice must be lying.
+
+If John is telling the truth, this leaves Alice, Carlos or Diana to be the hacker. If Alice is the hacker, then Diana is telling the truth. If Carlos is the hacker then Alice is telling the truth. If Diana is the hacker, then Carlos is telling the truth. These conclusions, violate the fact that exactly one of them is telling the truth.
+
+If Carlos is telling the truth, then Diana is guilty. In this case John is also telling the truth. Again, exactly one of them can tell the truth.
+
+If Diana is the truth teller, Alice is lying about Carlos' guilt, Carlos is lying about Diana's guilt, and John is lying about his innocence.
+
+\noindent{\bf 44(a): (1 pt)}
+\newline
+$\displaystyle\NOT{p}\OR{\NOT{q}}$
+\clearpage
+
+%--------------------------------------------------------------------
+
+\subsection*{Exercises for Section 1.3:}     
+
+\noindent{\bf{8(c) (1 pt)}}
+\newline
+James is not young or not strong.
+
+\noindent{\bf{10(c) (2 pts)}}
+\newline
+$(p\IMPLIES\NOT{q})\IMPLIES(\NOT{p}\IMPLIES q)$\newline
+$=\NOT{(\NOT{p}\OR{\NOT{q}})}\OR{(p\OR{q})}$\newline
+\newline
+Let $P=(p\IMPLIES\NOT{q})$ and ${Q=(\NOT{p}\IMPLIES q)}$\newline
+$\NOT{P}\OR{Q}$\newline
+$\NOT{(p\IMPLIES{\NOT{q}})}\OR{(\NOT{p}\IMPLIES q)}$\newline
+\newline
+For $p\IMPLIES{\NOT{q}}$:\newline
+$=\NOT{p}\OR{\NOT{q}}$\newline
+\newline
+For $\NOT{p}\IMPLIES{q}$:
+\newline
+$=p\OR{q}$\newline
+
+\noindent{\bf{20 (2 pts)}}
+\newline
+Show that $p\IFF{q}$ and $(p\AND{q})\OR{(\NOT{p}\AND{\NOT{q}})}$ are logically equivalent.
+
+
+\begin{tabular}{c|c|c}
+    $p$ & $q$ & $p\IFF q$  \\
+    \hline
+    0 & 0 & 1 \\
+    \hline
+    0 & 1 & 0 \\
+    \hline
+    1 & 0 & 0 \\
+    \hline
+    1 & 1 & 1 \\
+\end{tabular}
+
+\begin{tabular}{c|c|c|c|c}
+    $p$ & $q$ & $p\AND{q}$ & $\NOT{p}\AND\NOT{q}$ & $(p\AND q)\OR(\NOT{p}\AND\NOT q)$ \\
+    \hline
+    0 & 0 & 0 & 1 & 1\\
+    \hline
+    0 & 1 & 0 & 0 & 0\\
+    \hline
+    1 & 0 & 0 & 0 & 0\\
+    \hline
+    1 & 1 & 1 & 0 & 1\\
+\end{tabular}
+
+$\therefore p\IFF q\equiv(p\AND q)\OR(\NOT{p}\AND\NOT q)$
+\clearpage
+
+%--------------------------------------------------------------------
+
+\subsection*{Exercises for Section 1.4:}     
+
+\noindent{\bf{10(e): (1 pt)}}
+\newline
+Let $C(x)$ be the statement “$x$ has a cat,” let $D(x)$ be the
+statement “$x$ has a dog,” and let $F(x)$ be the statement “$x$
+has a ferret.” Express each of these statements in terms
+of $C(x)$, $D(x)$, $F(x)$, quantifiers, and logical connectives.
+Let the domain consist of all students in your class.
+\newline
+For each of the three animals, cats, dogs, and ferrets,
+there is a student in your class who has this animal as
+a pet.
+
+$(\exists xC(x))\land(\exists xD(x))\land(\exists xF(x))$
+
+\noindent{\bf{42(b): (1 pt)}}
+\newline
+Express each of these system specifications using predicates, quantifiers, and logical connectives.\newline
+No directories in the file system can be opened and no files can be closed when system errors have been detected.\newline
+Let $D(x)$ be if the directory in the file system can be opened.\newline
+Let $F(x)$ be if file system can be closed.\newline
+Let $E$ be if a system error has been detected.\newline
+
+$E\IMPLIES(\forall x\neg{D(x)}\AND{\forall x \neg{F(x)}})$
+
+\noindent{\bf{46: (2 pts)}}
+\newline
+Determine whether $\forall x (P(x)\IFF{Q(x)})$ and $\forall x P(x)\IFF{\forall xQ(x)}$ are logically equivalent. Justify your answer.\newline
+\newline
+$P(1)=T, P(2)=F, P(3)=T$\newline
+$Q(1)=T, Q(2)=T, Q(3)=T$\newline
+Given these conditions, the $\forall x P(x)\IFF{\forall xQ(x)}$ is always false.\newline
+However, $\forall x (P(x)\IFF{Q(x)})$ is a conditional proposition.\newline
+Given this, $\forall x (P(x)\IFF{Q(x)})\not\equiv\forall x P(x)\IFF{\forall xQ(x)}$
+
+\clearpage
+
+%--------------------------------------------------------------------
+
+\end{document}

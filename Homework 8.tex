@@ -1,0 +1,346 @@
+% Comment lines start with %
+% LaTeX commands start with \
+% This template was provided by Jennifer Welch for CSCE 222-200, Honors, Spring 2015
+
+\documentclass[12pt]{article}  % This is an article with font size 12-point
+
+% Packages add features
+\usepackage{times}     % font choice
+\usepackage{amsmath}   % American Mathematical Association math formatting
+\usepackage{amsthm}    % nice formatting of theorems
+\usepackage{amssymb}    % provides some symbols
+\usepackage{latexsym}  % provides some more symbols
+\usepackage{fullpage}  % uses most of the page (1-inch margins)
+
+\setlength{\parskip}{.1in}  % increase the space between paragraphs
+
+\renewcommand{\baselinestretch}{1.1}  % increase the space between lines
+
+% Convenient renaming of symbols for logic formulas
+\newcommand{\NOT}{\neg}
+\newcommand{\AND}{\wedge}
+\newcommand{\OR}{\vee}
+\newcommand{\XOR}{\oplus}
+\newcommand{\IMPLIES}{\rightarrow}
+\newcommand{\IFF}{\leftrightarrow}
+\providecommand{\myceil}[1]{$\left \lceil #1 \right \rceil$}
+\providecommand{\myfloor}[1]{$\left \lfloor #1 \right \rfloor$}
+\newcommand{\powerset}[1]{\mathbb{P}(#1)}
+
+% Actual content starts here.
+\begin{document}
+
+\begin{center}         % center all the material between begin and end
+{\large                % use larger font
+CSCE 222 (Carlisle), Discrete Structures for Computing \\  % \\ is line break
+Spring 2022 \\
+Homework 8}
+\end{center}
+\rule{6in}{.1pt}       % horizontal line 6 inches long and .1 point high
+\begin{center}
+{\large
+Type your name below the pledge to sign\\
+On my honor, as an Aggie, I have neither given nor received unauthorized aid on this academic work.\\
+**HUY QUANG LAI**}
+\end{center}
+
+% blank line separates paragraphs.  First line of a paragraph is automatically
+% indented.  
+
+\rule{6in}{.1pt}       % horizontal line 6 inches long and .1 point high
+                    
+\noindent              % don't indent
+{\bf Instructions:}    % \bf makes text boldface
+                       % \em makes text emphasized (italics)
+
+\begin{itemize}        % makes an itemized list
+\item The exercises are from the textbook.  You are encouraged to work
+      extra problems to aid in your learning; remember, the solutions to 
+      the odd-numbered problems are in the back of the book.
+\item Grading will be based on correctness, clarity, and whether your
+      solution is of the appropriate length.
+\item Always justify your answers.
+\item Don't forget to acknowledge all sources of assistance in the section below, and write up your solutions on your own.
+\item {\em Turn in .pdf file to Gradescope by the start of class on Monday, March 21, 2022.}  It is simpler to put each problem on its own page using the LaTeX clearpage command.
+\end{itemize}
+
+
+\rule{6in}{.1pt}       % horizontal line 6 inches long and .1 point high
+
+{\bf Help Received:}    % \bf makes text boldface
+\begin{itemize}
+\item Rosen, Kenneth H. \textit{Discrete Mathematics and Its Applications}. McGraw-Hill, 2019.
+\end{itemize}
+
+
+
+\rule{6in}{.1pt}       % horizontal line 6 inches long and .1 point high
+
+%---------------------------------------------------------------------
+
+% \subsection makes a subsection heading; * leaves it unnumbered.
+% (Usually subsections are inside sections, but the \section command
+% used a font that was larger than I wanted.)
+\subsection*{Exercises for Section 5.3:}     
+
+\noindent
+{\bf 6(a,c,d): (3 points). Do NOT do proofs.} For 6d it should read $n\geq 2$\\
+\noindent
+Determine whether each of these proposed definitions is a valid recursive definition of a function $f$ from the set of non-negative integers to the set of integers. If $f$ is well defined, find a formula for $f(n)$ when $n$ is a non-negative integer and prove that your formula is valid.
+
+\noindent $f(0)=1,f(n)=-f(n-1)$ for $n\geq1$\\
+Valid recursive definition.\\
+$f(n)=(-1)^n$
+
+\noindent $f(0)=0,f(1)=1,f(n)=2f(n+1)$ for $n\geq2$\\
+Invalid recursive definition.
+
+\noindent $f(0)=0,f(1)=1,f(n)=2f(n-1)$ for $n\geq2$\\
+Valid recursive definition.\\
+$f(2)=2f(1)=2,f(3)=2f(2)=4,\cdots$\\
+$\displaystyle f(n)=2^{\left\lfloor \frac{n}{2}\right\rfloor}$
+
+\noindent
+{\bf 12: (2 points).}
+
+\noindent
+$f_n$ is the $n$th Fibonacci number.
+
+\noindent
+Prove that $\displaystyle f_1^2+f_2^2+\cdots+f_n^2=f_{n}f_{n+1}$ when $n$ is a positive integer.
+
+\noindent
+\textit{Base Case}:\\
+$f_1^2=1^2=1, f_1\cdot f_2=1\cdot1=1$\\
+True for $n=1$
+
+\noindent
+$f_1^2+f_2^2=1^2+1^2=2,f_2\cdot f_3=1\cdot2=2$\\
+True for $n=2$
+
+\noindent
+\textit{Inductive Hypothesis}:\\
+Assume $\displaystyle\sum_{i=1}^n f_i^2=f_n\cdot f_{n+1}$
+
+\noindent
+\textit{Inductive Step}:\\
+$\displaystyle\sum_{i=1}^{n+1} f_i^2$\\
+$\displaystyle=\sum_{i=1}^n f_i^2+f_{n+1}^2$\\
+$\displaystyle=f_n\cdot f_{n+1}+f_{n+1}^2$\\
+$=f_{n+1}(f_n+f_{n+1})$\\
+$=f_{n+1}f_{n+2}$
+
+\noindent
+{\bf 18: (3 points).}\\
+
+\noindent
+Let\\
+$A=\begin{bmatrix}
+    1 & 1 \\
+    1 & 0
+\end{bmatrix}$
+
+\noindent
+Show that\\
+$A^n=\begin{bmatrix}
+    f_{n+1} & f_n \\
+    f_n     & f_{n-1}
+\end{bmatrix}$
+
+\noindent
+when $n$ is a positive integer.
+
+\noindent
+\textit{Base Case}:\\
+$\displaystyle A^1=\begin{bmatrix}
+    f_2 & f_1 \\
+    f_1 & f_0
+\end{bmatrix}=\begin{bmatrix}
+    1 & 1 \\
+    1 & 0
+\end{bmatrix}$
+
+\noindent
+\textit{Inductive Hypothesis}:\\
+Assume: $\displaystyle A^n=\begin{bmatrix}
+    f_{n+1} & f_{n}   \\
+    f_{n}   & f_{n-1} \\
+\end{bmatrix}$ for all $n\geq2$
+
+\noindent
+\textit{Inductive Step}:\\
+$A^{n+1}=A^n\times A^{1}=\begin{bmatrix}
+    f_{n+1} & f_{n}   \\
+    f_{n}   & f_{n-1} \\
+\end{bmatrix}\times\begin{bmatrix}
+    1 & 1 \\
+    1 & 0
+\end{bmatrix}=$\\
+$\begin{bmatrix}
+    f_{n+1}+f_{n} & f_n+f_{n-1} \\
+    f_{n+1}       & f_n
+\end{bmatrix}=\begin{bmatrix}
+    f_{n+1} & f_{n+1} \\
+    f_{n+1} & f_n
+\end{bmatrix}$
+
+\noindent
+{\bf 46: (2 points).}\\
+Use structural induction to show that $l(T)$, the number of leaves of a full binary tree $T$, is 1 more than $i(T)$, the number of internal vertices of $T$.
+
+\noindent
+The full binary tree consisting of a single vertex, denoted $\bullet$, clearly has 1 leaf and 0 internal vertices: $l(\bullet)=i(\bullet)+1$.
+
+\noindent
+Let $T_L$ be the full binary tree left of $\bullet$ and $T_R$ be the full binary tree right of $\bullet$.\\
+Because $T_L$ and $T_R$ are connected with an internal vertex, we can define $i(T)$ as follows: $i(T)=i(T_L)+i(T_R)+1$.\\
+Similarly, $l(T)$ can be defined as: $l(T)=l(T_L)+l(T_2)$. Combined with the base case, $l(T)=(i(T_L)+1)+(i(T_R)+1)$.\\
+$l(T)=(i(T_L)+1)+(i(T_R)+1)$\\
+$=i(T_L)+i(T_R)+1+1$\\
+$=i(T)+1$
+
+\noindent
+With this, the total length of a full binary tree is 1 more than the number of internal vertices.
+
+\subsection*{Exercises for Section 5.4:}     
+
+In the following problems, assume that the following functions are defined:
+\begin{itemize}
+\item def isNull(T : Tree)  $\rightarrow$ bool:
+\item def value(T : Tree)  $\rightarrow$ int:\# may not be called on Null tree
+\item def left(T : Tree) $\rightarrow$ Tree: \# may not be called on Null tree
+\item def right(T : Tree) $\rightarrow$ Tree: \# may not be called on Null tree
+\end{itemize}
+Also, assume a binary search tree. That is, given Tree $x$, all values in the left subtree are $\leq value(x)$ and all values in the right subtree are $> value(x)$.
+
+\noindent
+{\bf Custom 1: (3 points)}
+Write a recursive method that finds the smallest item in the tree.
+\begin{verbatim}
+def findMin(T: Tree)
+    if (isNull(T)):
+        raise TypeError
+    
+    if isNull(left(T)):
+        return value(T)
+    
+    return findMin(left(T))
+\end{verbatim}
+
+\noindent
+{\bf Custom 2: (3 points)}
+Write a recursive method that finds the sum of all the values in the tree.
+\begin{verbatim}
+def sum(T: Tree):
+    if isNull(T):
+        return 0
+    
+    return sum(left(T)) + value(T) + sum(right(T));
+\end{verbatim}
+
+\clearpage
+\noindent
+{\bf Custom 3: (2 points)}
+Write a recursive method that returns $True$ if its integer parameter, $x$, is in the tree and $False$ otherwise.
+\begin{verbatim}
+def contains(x: value, T: Tree):
+    if (isNull(T)):
+        return False
+    
+    if value(T) == x:
+        return True
+    
+    return contains(x, left(T)) or contains(x, right(T))
+\end{verbatim}
+
+\clearpage
+\noindent
+{\bf 50: (2 points)}
+
+\noindent
+Sort $3,5,7,8,1,9,2,4,6$ using the quick sort.\\
+\begin{verbatim}
+protected static int[] quicksort(int[] list) {
+    if (list.length == 0)
+        return [];
+    if (list.length == 1)
+        return list;
+    
+    int pivot = median(list);
+    int[] left = [], right = [];
+    for (int value : list) {
+        if (value < pivot)
+            left = left.append(value);
+        if (value > pivot)
+            right = right.append(value);
+    }
+    return quicksort(left).append(pivot).append(quicksort(right));
+}
+\end{verbatim}
+\begin{enumerate}
+    \item Pivot = 5
+    \begin{itemize}
+        \item Left = $\{3,1,2,4\}$
+        \item Right = $\{7,8,9,6\}$
+    \end{itemize}
+    
+    \item Quicksort Left
+    \begin{enumerate}
+        \item Pivot = 2
+        \begin{itemize}
+            \item Left = $\{1\}$
+            \item Right = $\{3,4\}$
+        \end{itemize}
+        \item Quicksort Left\\
+            List is length 1, do nothing
+        \item Quicksort Right
+        \begin{enumerate}
+            \item Pivot = 3
+            \begin{itemize}
+                \item Left = $\{\}$
+                \item Right = $\{4\}$
+            \end{itemize}
+            \item Quicksort Left\\
+            List is empty do, nothing.
+            \item Quicksort Right\\
+            List is length 1, do nothing
+            \item return Left, Pivot, Right\\
+            $\{3,4\}$
+        \end{enumerate}
+        \item return Left, Pivot, Right\\
+        $\{1,2,3,4\}$
+    \end{enumerate}
+    
+    \item Quicksort Right
+    \begin{enumerate}
+        \item Pivot = 7
+        \begin{itemize}
+            \item Left = $\{6\}$
+            \item Right = $\{8,9\}$
+        \end{itemize}
+        \item Quicksort Left\\
+            List is length 1, do nothing
+        \item Quicksort Right
+        \begin{enumerate}
+            \item Pivot = 8
+            \begin{itemize}
+                \item Left = $\{\}$
+                \item Right = $\{9\}$
+            \end{itemize}
+            \item Quicksort Left\\
+            List is empty do, nothing.
+            \item Quicksort Right\\
+            List is length 1, do nothing
+            \item return Left, Pivot, Right\\
+            $\{8,9\}$
+        \end{enumerate}
+        \item return Left, Pivot, Right\\
+        $\{6,7,8,9\}$
+    \end{enumerate}
+    
+    \item return Left, Pivot, Right\\
+    $\{1,2,3,4,5,6,7,8,9\}$
+\end{enumerate}
+
+
+\end{document}

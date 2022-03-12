@@ -1,0 +1,290 @@
+% Comment lines start with %
+% LaTeX commands start with \
+% This template was provided by Jennifer Welch for CSCE 222-200, Honors, Spring 2015
+
+\documentclass[12pt]{article}  % This is an article with font size 12-point
+
+% Packages add features
+\usepackage{times}     % font choice
+\usepackage{amsmath}   % American Mathematical Association math formatting
+\usepackage{amsthm}    % nice formatting of theorems
+\usepackage{amssymb}    % provides some symbols
+\usepackage{latexsym}  % provides some more symbols
+\usepackage{fullpage}  % uses most of the page (1-inch margins)
+
+\setlength{\parskip}{.1in}  % increase the space between paragraphs
+
+\renewcommand{\baselinestretch}{1.1}  % increase the space between lines
+
+% Convenient renaming of symbols for logic formulas
+\newcommand{\NOT}{\neg}
+\newcommand{\AND}{\wedge}
+\newcommand{\OR}{\vee}
+\newcommand{\XOR}{\oplus}
+\newcommand{\IMPLIES}{\rightarrow}
+\newcommand{\IFF}{\leftrightarrow}
+\providecommand{\myceil}[1]{$\left\lceil #1 \right \rceil$}
+\providecommand{\myfloor}[1]{$\left \lfloor #1 \right \rfloor$}
+\newcommand{\powerset}[1]{\mathbb{P}(#1)}
+
+% Actual content starts here.
+\begin{document}
+
+\begin{center}         % center all the material between begin and end
+{\large                % use larger font
+CSCE 222 (Carlisle), Discrete Structures for Computing \\  % \\ is line break
+Spring 2022 \\
+Homework 5}
+\end{center}
+\rule{6in}{.1pt}       % horizontal line 6 inches long and .1 point high
+\begin{center}
+{\large
+Type your name below the pledge to sign\\
+On my honor, as an Aggie, I have neither given nor received unauthorized aid on this academic work.\\
+HUY QUANG LAI}
+\end{center}
+
+% blank line separates paragraphs.  First line of a paragraph is automatically
+% indented.  
+
+\rule{6in}{.1pt}       % horizontal line 6 inches long and .1 point high
+                    
+\noindent              % don't indent
+{\bf Instructions:}    % \bf makes text boldface
+                       % \em makes text emphasized (italics)
+
+\begin{itemize}        % makes an itemized list
+\item The exercises are from the textbook.  You are encouraged to work
+      extra problems to aid in your learning; remember, the solutions to 
+      the odd-numbered problems are in the back of the book.
+\item Grading will be based on correctness, clarity, and whether your
+      solution is of the appropriate length.
+\item Always justify your answers.
+\item Don't forget to acknowledge all sources of assistance in the section below, and write up your solutions on your own.
+\item {\em Turn in .pdf file to Gradescope by the start of class on Monday, February 21, 2022.}  It is simpler to put each problem on its own page using the LaTeX clearpage command.
+\end{itemize}
+
+
+\rule{6in}{.1pt}       % horizontal line 6 inches long and .1 point high
+
+{\bf Help Received:}    % \bf makes text boldface
+\begin{itemize}
+\item Rosen, Kenneth H. \emph{Discrete Mathematics and Its Applications}. McGraw-Hill, 2019.
+\end{itemize}
+
+
+
+\rule{6in}{.1pt}       % horizontal line 6 inches long and .1 point high
+
+%---------------------------------------------------------------------
+
+% \subsection makes a subsection heading; * leaves it unnumbered.
+% (Usually subsections are inside sections, but the \section command
+% used a font that was larger than I wanted.)
+
+%--------------------------------------------------------------------
+
+\subsection*{Exercises for Section 2.5:}     
+
+\noindent{\bf{2(a-f): (2 points)}}\\
+\noindent{Determine whether each of these sets is finite, countably infinite, or uncountable. For those that are countably infinite, exhibit a one-to-one correspondence between the set of positive integers and that set.}
+\begin{enumerate}
+    \item the integers greater than 10\\
+    Countably infinite\\
+    $\{11,12,13,14,\cdots\}$
+    
+    \item the odd negative integers\\
+    Countably infinite\\
+    $\{-1,-3,-5,-7,\cdots\}$
+    
+    \item the integers with absolute value less than 1,000,000\\
+    Finite
+    
+    \item the real numbers between 0 and 2\\
+    Uncountably infinite
+    
+    \item the set $A\times\mathbb{Z}^+$ where $A=\{2,3\}$\\
+    Countably infinite\\
+    $\{(2,1),(3,1),(2,2),(3,2),(2,3),(3,3),\cdots\}$
+    
+    \item the integers that are multiples of 10\\
+    Countably infinite\\
+    $\{0,-10,10,-20,20,\cdots\}$
+\end{enumerate}
+
+\noindent{\bf{4(a-d): (2 points)}}\\
+\noindent{Determine whether each of these sets is countable or uncountable. For those that are countably infinite, exhibit a one-to-one correspondence between the set of positive integers and that set.}
+\begin{enumerate}
+    \item integers not divisible by 3\\
+    $\{1,-1,2,-2,4,-4,5,-5,\cdots\}$
+    \item integers divisible by 5 but not by 7\\
+    $\{5,-5,10,-10,15,-15,20,-20,30,-30,40,-40,\cdots\}$
+    \item the real numbers with decimal representations consisting of all 1s\\
+    $\{0.\overline{1},-1.\overline{1},1.\overline{1},-2.\overline{1},2.\overline{1},\cdots\}$
+    \item the real numbers with decimal representations of all 1s or 9s\\
+    $\{0.\overline{1},0.\overline{9},-1.\overline{1},-1.\overline{9},1.\overline{1},1.\overline{9},\cdots\}$
+    
+\end{enumerate}
+
+\noindent{\bf{6: (1 points)}}\\
+\noindent{Suppose that Hilbert’s Grand Hotel is fully occupied, but the hotel closes all the even numbered rooms for maintenance. Show that all guests can remain in the hotel.}\\
+Every guest can go to room number $2n+1$ where $n$ is the current room number.
+
+\noindent{\bf{8: (2 points)}}\\
+\noindent{Show that a countably infinite number of guests arriving at Hilbert’s fully occupied Grand Hotel can be given rooms without evicting any current guest.}\\
+Every current guest can go to room number $2n$ where $n$ is the current room number.\\
+Then, the countably infinite number of guests can move into the odd-numbered rooms.
+
+\noindent{\bf{10(a-c): (2 points)}}\\
+\noindent{Give an example of two uncountable sets $A$ and $B$ such that $A-B$ is}
+\begin{enumerate}
+    \item finite.\\
+    $A=\mathbb{R},B=\mathbb{R}$
+    
+    \item countably infinite.\\
+    $A=\mathbb{R},B=\mathbb{R}-\mathbb{Z}$
+    
+    \item uncountable.\\
+    $A=\mathbb{C},B=\mathbb{R}$
+\end{enumerate}
+
+\noindent{\bf{28: (2 points)}}\\
+\noindent{Show that the set $\mathbb{Z}^+\times\mathbb{Z}^+$ is countable.}\\
+$\mathbb{Z}^+\times\mathbb{Z}^+=$\\
+$\{(1,1),(1,2),(1,3),\cdots$\\
+$(2,1),(2,2),(2,3),\cdots$\\
+$(3,1),(3,2),(3,3),\cdots$\\
+$\vdots$\\
+$(n,1),(n,2),(n,3),\cdots\}$\\
+From the set, find the elements where the sum of the elements in the ordered pair is 2.\\
+There is $(1,1)$.
+Next, find the elements where the sum of the elements in the ordered pair is 3.\\
+There are $(1,2),(2,1)$\\
+We can continue this pattern until all elements of $\mathbb{Z}^+\times\mathbb{Z}^+$ are hit.\\
+Therefore, $\mathbb{Z}^+\times\mathbb{Z}^+$ is countable.
+
+\clearpage
+\subsection*{Exercises for Section 3.1:}     
+
+\noindent{\bf{8: (1 points). Assume the list of integers is indexed 1,2,3...}}\\
+\noindent{Describe an algorithm that takes as input a list of $n$ distinct integers and finds the location of the largest even integer in the list or returns $0$ if there are no even integers in the list.}
+\begin{verbatim}
+int max = n[0]
+for (int element : n) {
+    if element % 2 == 1
+        go to next element
+    if element > max
+        max = element
+}
+\end{verbatim}
+
+\noindent{\bf{14: (2 points)}}\\
+\noindent{List all the steps used to search for 7 in the sequence given in Exercise 13 for both a linear search and a binary search.}\\
+List = $\{1,3,4,5,6,8,9,11\}$\\
+For linear search:
+\begin{verbatim}
+Iterate through the list.
+Is the element at this index is equal to 7?
+If yes, return index
+If no, go to next element.
+If at the end of the list and have not found 7, return -1
+\end{verbatim}
+For Binary Search:
+\begin{verbatim}
+Sort list.
+Find median of the list.
+Record index of median.
+
+if length of list is 1,
+    if 7 is equal to the median.
+        return index
+    else return -1
+
+If 7 is greater than median, Binary search the right half of the list.
+If 7 is less than median, Binary search the left half of the list.
+If 7 is equal to the median, return index.
+\end{verbatim}
+
+\noindent{\bf{18: (2 points)}}\\
+\noindent{Describe an algorithm that locates the last occurrence of the smallest element in a finite list of integers, where the integers in the list are not necessarily distinct.}
+\begin{verbatim}
+int min = list[0]
+for (int element: list) {
+    if (element < min)
+        min = element
+}
+
+for (int i = size of list - 1; i > -1; --i) {
+    if list[i] == min
+        return i;
+}
+\end{verbatim}
+
+\noindent{\bf{38: (2 points)}}\\
+Use the bubble sort to sort $d,f,k,m,a,b$, showing the lists obtained at each step.
+\begin{enumerate}
+    \item $d,f,k,m,a,b$\\
+    Compared $d$ to $f$. No change
+    \item $d,f,k,m,a,b$\\
+    Compared $f$ to $k$. No change
+    \item $d,f,k,m,a,b$\\
+    Compared $k$ to $m$. No change
+    \item $d,f,k,a,m,b$\\
+    Compared $m$ to $a$. Swapped.
+    \item $d,f,k,a,b,m$\\
+    Compared $m$ to $b$. Swapped.
+    \item $d,f,k,a,b,m$\\
+    Compared $d$ to $f$. No change
+    \item $d,f,k,a,b,m$\\
+    Compared $f$ to $k$. No change
+    \item $d,f,a,k,b,m$\\
+    Compared $k$ to $a$. Swapped.
+    \item $d,f,a,b,k,m$\\
+    Compared $k$ to $b$. Swapped.
+    \item $d,f,a,b,k,m$\\
+    Compared $k$ to $m$. No change.
+    \item $d,f,a,b,k,m$\\
+    Compared $d$ to $f$. No change.
+    \item $d,a,f,b,k,m$\\
+    Compared $f$ to $a$. Swapped.
+    \item $d,a,b,f,k,m$\\
+    Compared $f$ to $b$. Swapped.
+    \item $d,a,b,f,k,m$\\
+    Compared $f$ to $k$. No change
+    \item $d,a,b,f,k,m$\\
+    Compared $k$ to $m$. No change
+    \item $a,d,b,f,k,m$\\
+    Compared $d$ to $a$. Swapped.
+    \item $a,b,d,f,k,m$\\
+    Compared $d$ to $b$. Swapped.
+    \item $a,b,d,f,k,m$\\
+    Compared $d$ to $f$. No change.
+    \item $a,b,d,f,k,m$\\
+    Compared $f$ to $k$. No change.
+    \item $a,b,d,f,k,m$.\\
+    Compared $k$ to $m$. No change.
+    \item $a,b,d,f,k,m$\\
+    Compared $a$ to $b$. No change.
+    \item $a,b,d,f,k,m$\\
+    Compared $b$ to $d$. No change.
+    \item $a,b,d,f,k,m$\\
+    Compared $d$ to $f$. No change
+    \item $a,b,d,f,k,m$\\
+    Compared $f$ to $k$. No change
+    \item $a,b,d,f,k,m$\\
+    Compared $k$ to $m$. No change
+\end{enumerate}
+
+\noindent{\bf{58 (a-d): (2 points)}}
+\noindent{Use the cashier’s algorithm to make change using quarters, dimes, and pennies (but no nickels) for each of the amounts given in Exercise 56. For which of these amounts does the greedy algorithm use the fewest coins of these denominations possible?}
+\begin{enumerate}
+    \item 87 cents\\
+    3 quarters, 1 dime, 2 pennies.
+    \item 49 cents\\
+    1 quarter, 2 dimes, 4 pennies.
+    \item 99 cents\\
+    3 quarters, 2 dimes, 2 pennies.
+    \item 33 cents\\
+    1 quarter, 8 pennies.
+\end{enumerate}
+\end{document}

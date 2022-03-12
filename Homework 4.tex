@@ -1,0 +1,226 @@
+% Comment lines start with %
+% LaTeX commands start with \
+% This template was provided by Jennifer Welch for CSCE 222-200, Honors, Spring 2015
+
+\documentclass[12pt]{article}  % This is an article with font size 12-point
+
+% Packages add features
+\usepackage{times}     % font choice
+\usepackage{amsmath}   % American Mathematical Association math formatting
+\usepackage{amsthm}    % nice formatting of theorems
+\usepackage{amssymb}    % provides some symbols
+\usepackage{latexsym}  % provides some more symbols
+\usepackage{fullpage}  % uses most of the page (1-inch margins)
+
+\setlength{\parskip}{.1in}  % increase the space between paragraphs
+
+\renewcommand{\baselinestretch}{1.1}  % increase the space between lines
+
+% Convenient renaming of symbols for logic formulas
+\newcommand{\NOT}{\neg}
+\newcommand{\AND}{\wedge}
+\newcommand{\OR}{\vee}
+\newcommand{\XOR}{\oplus}
+\newcommand{\IMPLIES}{\rightarrow}
+\newcommand{\IFF}{\leftrightarrow}
+\providecommand{\ceil}[1]{$\left \lceil #1 \right \rceil$}
+\providecommand{\floor}[1]{$\left \lfloor #1 \right \rfloor$}
+\newcommand{\powerset}[1]{\mathbb{P}(#1)}
+
+% Actual content starts here.
+\begin{document}
+
+\begin{center}         % center all the material between begin and end
+{\large                % use larger font
+CSCE 222 (Carlisle), Discrete Structures for Computing \\  % \\ is line break
+Spring 2022 \\
+Homework 4}
+\end{center}
+\rule{6in}{.1pt}       % horizontal line 6 inches long and .1 point high
+\begin{center}
+{\large
+Type your name below the pledge to sign\\
+On my honor, as an Aggie, I have neither given nor received unauthorized aid on this academic work.\\
+HUY QUANG LAI}
+\end{center}
+
+% blank line separates paragraphs.  First line of a paragraph is automatically
+% indented.  
+
+\rule{6in}{.1pt}       % horizontal line 6 inches long and .1 point high
+                    
+\noindent              % don't indent
+{\bf Instructions:}    % \bf makes text boldface
+                       % \em makes text emphasized (italics)
+
+\begin{itemize}        % makes an itemized list
+\item The exercises are from the textbook.  You are encouraged to work
+      extra problems to aid in your learning; remember, the solutions to 
+      the odd-numbered problems are in the back of the book.
+\item Grading will be based on correctness, clarity, and whether your
+      solution is of the appropriate length.
+\item Always justify your answers.
+\item Don't forget to acknowledge all sources of assistance in the section below, and write up your solutions on your own.
+\item {\em Turn in .pdf file to Gradescope by the start of class on Monday, February 14, 2022.}  It is simpler to put each problem on its own page using the LaTeX clearpage command.
+\end{itemize}
+
+
+\rule{6in}{.1pt}       % horizontal line 6 inches long and .1 point high
+
+{\bf Help Received:}    % \bf makes text boldface
+\begin{itemize}
+\item Rosen, Kenneth H. \emph{Discrete Mathematics and Its Applications}. McGraw-Hill, 2019. 
+\end{itemize}
+
+
+
+\rule{6in}{.1pt}       % horizontal line 6 inches long and .1 point high
+
+%---------------------------------------------------------------------
+
+% \subsection makes a subsection heading; * leaves it unnumbered.
+% (Usually subsections are inside sections, but the \section command
+% used a font that was larger than I wanted.)
+%--------------------------------------------------------------------
+
+\subsection*{Exercises for Section 2.3:}     
+
+\noindent{\bf{8 (a,c,e,g): (2 points)}}\newline
+\floor{1.1}$=1$\newline
+\floor{-0.1}$=-1$\newline
+\ceil{2.99}$=3$\newline
+$\left\lfloor\frac{1}{2}+\left\lceil\frac{3}{2}\right\rceil\right\rfloor=2$
+
+\noindent{\bf{20(a-d): (2 points)}}\newline
+\noindent{Give an example of a function from $\mathbb{N}$ to $\mathbb{N}$ that is}
+\begin{enumerate}
+    \item one-to-one but not onto.\newline
+        $f(x)=2x$
+    \item onto but not one-to-one.\newline
+        $\displaystyle f(x)=\begin{cases}
+        1 & x=1\\
+        x-1 & x\neq1
+        \end{cases}
+        $
+    \item both onto and one-to-one (but different from the identity function).\newline
+        $\displaystyle f(x)=\begin{cases}
+        2 & x=1\\
+        1 & x=2\\
+        x & x>2
+        \end{cases}
+        $
+    \item neither one-to-one nor onto.\newline
+        $f(x)=1$
+\end{enumerate}
+
+\noindent{\bf{34(a): (2 points)}}\newline
+\noindent{Suppose that $g$ is a function from $A$ to $B$ and $f$ is a function from $B$ to $C$. Prove each of these} statements.\newline
+If $f\circ g$ is onto, then $f$ must also be onto.
+Since $f\circ g$ is surjective, then for every $c\in C$ there exists $a\in A$ such that $f(g(a))=c$.\newline
+Let $b=g(a)$.\newline
+Then $b\in B$ and $f(b)=f(g(a))=c$.\newline
+Thus $f(b)=c$. Hence $f$ is surjective.
+
+\noindent{\bf{38: (2 points)}}\newline
+\noindent{Find $f\circ g$ and $g\circ f$, where $f(x)=x^2+1$ and $g(x)=x+2$, are functions from $\mathbb{R}$ to $\mathbb{R}$.}\newline
+$f\circ g=(x+2)^2+1=x^2+2x^2+5$\newline
+$g\circ f=x^2+1+2=x^2+3$
+
+\clearpage
+\noindent{\bf{58: (2 points)}}\newline
+\noindent{Let $a$ and $b$ be real numbers with $a<b$. Use the floor and/or ceiling functions to express the number of integers $n$ that satisfy the inequality $a\leq n\leq b$.}\newline
+$a\leq n\IFF$\ceil{a}$\leq n$ and $n\leq b\IFF n\leq$\floor{b}\newline
+Because of this, \ceil{a}$\leq n\leq$\floor{b}.\newline
+The number of integers satisfying the inequality will be \floor{b}$-$\ceil{a}$+1$.
+
+\subsection*{Exercises for Section 2.4:}     
+
+\noindent{{\bf 4c: (1 point)}}\newline
+\noindent{What are the terms $a_0,a_1,a_2,\textrm{and } a_3$ of the sequence $\{a_n\}$, where $a_n$ equals $7+4^n$.}\newline
+$a_0=8,a_1=11,a_2=23,a_3=71$
+
+\noindent{\bf{10d: (1 point)}}\newline
+\noindent{Find the first six terms of the sequence defined by each of these recurrence relations and initial conditions.}\newline
+$a_n=na_{n-1}+a_{n-2}^2,a_0=-1,a_1=0$\newline
+$a_0=-1,a_1=0,a_2=1,a_3=3,a_4=13,a_5=74$
+
+\noindent{\bf{14f: (1 points)}}\newline
+\noindent{For each of these sequences find a recurrence relation satisfied by this sequence. (The answers are not unique because there are infinitely many different recurrence relations satisfied by any sequence.)}\newline
+$a_n=n^2+n$\newline
+$a_0=0$\newline
+$a_n=a_{n-1}+2n$\newline
+
+\noindent{\bf{18(a-c): (2 points)}}\newline
+\noindent{A person deposits \$1000 in an account that yields 9\% interest compounded annually.}\newline
+Set up a recurrence relation for the amount in the account at the end of n years.\newline
+$a_0=1000$\newline
+$a_n=1.09\cdot a_{n-1}$
+
+\noindent{Find an explicit formula for the amount in the account at the end of n years.}\newline
+$a_n=1000\cdot1.09^n$e
+
+\noindent{How much money will the account contain after 100 years?}\newline
+$a_{100}=\$5529040.79$
+
+\clearpage
+\noindent{\bf{22(a-c): (2 points)}}\newline
+\noindent{An employee joined a company in 2017 with a starting salary of \$50,000. Every year this employee receives a raise of \$1000 plus 5\% of the salary of the previous year.}\newline
+\noindent{Set up a recurrence relation for the salary of this employee n years after 2017.}\newline
+$a_0=50000$\newline
+$a_n=1.05a_{n+1}+1000$
+
+\noindent{What will the salary of this employee be in 2025?}\newline
+$2017, a_0=50000$\newline
+$2018, a_1=50000\cdot1.05+1000=53500$\newline
+$2019, a_2=53500\cdot1.05+1000=57175$\newline
+$2020, a_3=57175\cdot1.05+1000=61033.75$\newline
+$2021, a_4=61033.75\cdot1.05+1000=65065.4375$\newline
+$2022, a_5=65065.4375\cdot1.05+1000=69318.709375$\newline
+$2023, a_6=69318.709375\cdot1.05+1000=73784.6448437$\newline
+$2024, a_7=73784.6448437\cdot1.05+1000=78473.8770859$\newline
+$2025, a_8=78473.8770859\cdot1.05+1000=83397.5709402$\newline
+\$$83397.57$
+
+\noindent{Find an explicit formula for the salary of this employee n years after 2017.}\newline
+$a_0=50000,k=1.05,d=1000$\newline
+$a_1=ka_0+d$\newline
+$a_2=ka_1+d=k(ka_0+d)+d=k^2a_0+(k+1)d$\newline
+$a_3=ka_2+d=k(k^2a_0+(k+1)d)+d=k^3a_0+(k^2+k+1)d$\newline
+From the coefficient for $d$, $\displaystyle\sum_{i=0}^{n}k^i=\frac{k^n-1}{k-1}$\newline
+From the pattern, $\displaystyle a_n=a_0\cdot k^n+\frac{k^n-1}{k-1}d$\newline
+Substituting values back into variables:\newline
+\[
+    a_n=50000\cdot1.05^n+\frac{1.05^n-1}{0.05}\cdot1000
+\]
+
+\clearpage
+\noindent{\bf{24(a-b): (2 points)}}\newline
+\noindent{Find a recurrence relation for the balance $B(k)$ owed at the end of $k$ months on a loan at a rate of $r$ if a payment $P$ is made on the loan each month. [Hint: Express $B(k)$ in terms of $B(k-1)$ and note that the monthly interest rate is $\frac{r}{12}$.]}\newline
+$\displaystyle B(k)=\left(1+\frac{r}{12}\right)B(k-1)-P$\newline
+
+\noindent{Determine what the monthly payment $P$ should be so that the loan is paid off after $T$ months.}\newline
+Let $m=1+\frac{r}{12}$. Then,\newline
+\begin{flalign*}
+    B(k)&= mB(k-1)-P\\
+        &= m(mB(k-2)-P)-P\\
+        &= m^2B(k-2)-(m+1)P\\
+        &= m^2(mB(k-3)-P)-(m+1)P\\
+        &= m^3B(k-3)-(m^2+m+1)P\\
+        &= m^kB(0)-\frac{m^k-1}{m-1}P\\
+\end{flalign*}
+Let $k=T$ such that $B(T)=0$\newline
+$\displaystyle m^TB(0)-\frac{m^T-1}{m-1}P=0$\newline
+$\displaystyle P=\frac{m^TB(0)(m-1)}{m^T-1}$\newline
+Substituting for variables:
+\[
+    P=\frac{\left(\frac{r}{12}+1\right)^TB(0)\frac{r}{12}}{\left(\frac{r}{12}+1\right)^T-1}
+\]
+
+\noindent{\bf{40: (1 points)}}\newline
+$\displaystyle\sum_{k=99}^{200}k^3$\newline
+$\displaystyle=\sum_{k=1}^{200}k^3-\sum_{k=1}^{98}k^3$\newline
+$\displaystyle=\frac{200^2(201)^2}{4}-\frac{98^2(99^2)}{4}$\newline
+$\displaystyle=404010000-23532201$\newline
+$=380477799$
+
+\end{document}

@@ -1,0 +1,241 @@
+% Comment lines start with %
+% LaTeX commands start with \
+% This template was provided by Jennifer Welch for CSCE 222-200, Honors, Spring 2015
+
+\documentclass[12pt]{article}  % This is an article with font size 12-point
+
+% Packages add features
+\usepackage{times}     % font choice
+\usepackage{amsmath}   % American Mathematical Association math formatting
+\usepackage{amsthm}    % nice formatting of theorems
+\usepackage{amssymb}    % provides some symbols
+\usepackage{latexsym}  % provides some more symbols
+\usepackage{fullpage}  % uses most of the page (1-inch margins)
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+
+\setlength{\parskip}{.1in}  % increase the space between paragraphs
+
+\renewcommand{\baselinestretch}{1.1}  % increase the space between lines
+
+% Convenient renaming of symbols for logic formulas
+\newcommand{\NOT}{\neg}
+\newcommand{\AND}{\wedge}
+\newcommand{\OR}{\vee}
+\newcommand{\XOR}{\oplus}
+\newcommand{\IMPLIES}{\rightarrow}
+\newcommand{\IFF}{\leftrightarrow}
+\providecommand{\myceil}[1]{$\left \lceil #1 \right \rceil$}
+\providecommand{\myfloor}[1]{$\left \lfloor #1 \right \rfloor$}
+\newcommand{\powerset}[1]{\mathbb{P}(#1)}
+
+% Actual content starts here.
+\begin{document}
+
+\begin{center}         % center all the material between begin and end
+{\large                % use larger font
+CSCE 222 (Carlisle), Discrete Structures for Computing \\  % \\ is line break
+Spring 2022 \\
+Homework 6}
+\end{center}
+\rule{6in}{.1pt}       % horizontal line 6 inches long and .1 point high
+\begin{center}
+{\large
+Type your name below the pledge to sign\\
+On my honor, as an Aggie, I have neither given nor received unauthorized aid on this academic work.\\
+HUY QUANG LAI}
+\end{center}
+
+% blank line separates paragraphs.  First line of a paragraph is automatically
+% indented.  
+
+\rule{6in}{.1pt}       % horizontal line 6 inches long and .1 point high
+                    
+\noindent              % don't indent
+{\bf Instructions:}    % \bf makes text boldface
+                       % \em makes text emphasized (italics)
+
+\begin{itemize}        % makes an itemized list
+\item The exercises are from the textbook.  You are encouraged to work
+      extra problems to aid in your learning; remember, the solutions to 
+      the odd-numbered problems are in the back of the book.
+\item Grading will be based on correctness, clarity, and whether your
+      solution is of the appropriate length.
+\item Always justify your answers.
+\item Don't forget to acknowledge all sources of assistance in the section below, and write up your solutions on your own.
+\item {\em Turn in .pdf file to Gradescope by the start of class on Monday, February 28, 2022.}  It is simpler to put each problem on its own page using the LaTeX clearpage command.
+\end{itemize}
+
+
+\rule{6in}{.1pt}       % horizontal line 6 inches long and .1 point high
+
+{\bf Help Received:}    % \bf makes text boldface
+\begin{itemize}
+\item Rosen, Kenneth H. \emph{Discrete Mathematics and Its Applications}. McGraw-Hill, 2019.
+\end{itemize}
+
+
+
+\rule{6in}{.1pt}       % horizontal line 6 inches long and .1 point high
+
+%---------------------------------------------------------------------
+
+% \subsection makes a subsection heading; * leaves it unnumbered.
+% (Usually subsections are inside sections, but the \section command
+% used a font that was larger than I wanted.)
+
+
+%--------------------------------------------------------------------
+
+\subsection*{Exercises for Section 3.2:}     
+
+\noindent{\bf{6: (2 points)}}\\
+\noindent{Show that $\displaystyle\frac{x^3+2x}{2x+1}$ is $\displaystyle O(x^2)$}\\
+To satisfy the definition of $O(x^2)$, we need to find an appropriate choice of $c$ and $k$.\\
+Let’s consider $x\geq1000$ and reason by inequalities:
+\[\frac{x^3+2x}{2x+1}<\frac{x^3+2x}{2x}<\frac{1}{2}x^2+x^2=\frac{3}{2}x^2\]
+Since $\displaystyle\frac{x^3+2x}{2x+1}<\frac{3}{2}x^2$ when $x\geq1000$, we can choose $k=1000$ and $c=\frac{3}{2}$
+
+\noindent{\bf{22: (2 points)}}\\
+\noindent{Arrange the functions $(1.5)^n,n^{100},\log^3{n},\sqrt{n}\log{n},10^n,(n!)^2,\textrm{ and } n^{99} + n^{98}$ in a list so that each function is big-$O$ of the next function.}\\
+$\log^3{n},\sqrt{n}\log{n},n^{99}+n^{98}, n^{100},(1.5)^n,10^n,(n!)^2$
+
+\noindent{\bf{26(a-c): (2 points)}}\\
+\noindent{Give a big-$O$ estimate for each of these functions. For the function $g$ in your estimate $f(x)$ is $O(g(x))$, use a simple function $g$ of smallest order.}
+\begin{enumerate}
+    \item $(n^3+n^2\log{n})(\log{n}+1)+(17\log{n}+19)(n^3+2)$\\
+    $O(n^3\log{n})$
+    \item $(2^n+n^2)(n^3+3^n)$\\
+    $O(6^n)$
+    \item $(n^n+n2^n+5^n)(n!+5^n)$\\
+    $O(n^n\cdot n!)$
+\end{enumerate}
+
+\noindent{\bf{74: (2 points)}}\\
+\noindent{Determine whether $\log{n!}$ is $\Theta(n\log{n})$. Justify your answer.}\\
+$\displaystyle\log{n!}=\log{1}+\log{2}+\log{3}+\cdots+\log{n}$\\
+\\
+Upper Bound:\\
+$\displaystyle\log{1}+\log{2}+\log{3}+\cdots+\log{n}\leq\log{n}+\log{n}+\log{n}+\cdots\log{n}$\\
+$\displaystyle=n\cdot\log{n}$\\
+\\
+Lower Bound:\\
+$\displaystyle\log{1}+\cdots+\log{\frac{n}{2}}+\cdots+\log{n}\geq\log{\frac{n}{2}}+\log{\left(\frac{n}{2}+1\right)}+\cdots+\log{\left(n-1\right)}+\log{n}$\\
+$\displaystyle=\frac{n}{2}\cdot\log{\left(\frac{n}{2}\right)}$
+
+\subsection*{Exercises for Section 3.3:}     
+
+\noindent{\bf{2: (1 point).}}\\
+\noindent{Give a big-$O$ estimate for the number additions used in this segment of an algorithm.}
+\begin{verbatim}
+t:=0
+for i:=1 to n
+    for j:=1 to n
+        t:=t+i+j 
+\end{verbatim}
+$O(n^2)$
+
+\noindent{\bf{4: (1 point).}}\\
+\noindent{Give a big-$O$ estimate for the number of operations, where an operation is an addition or a multiplication, used in this segment of an algorithm (ignoring comparisons used to test the conditions in the while loop).}
+\begin{verbatim}
+i := 1
+t := 0
+while i <= n
+    t := t + 1
+    i := 2i
+\end{verbatim}
+Addition: $O(\log{n})$\\
+Multiplication: $O(\log{n})$\\
+
+\noindent{\bf{8: (2 points).}}\\
+\noindent{Given a real number $x$ and a positive integer $k$, determine the number of multiplications used to find $x^{2^k}$ starting with $x$ and successively squaring (to find $x^2,x^4$, and so on). Is this a more efficient way to find $x^{2^k}$ than by multiplying $x$ by itself the appropriate number of times?}\\
+Successively squaring will double the exponent of $x^2$ $k$ number of times. Because of this, successively squaring would be $O(k)$.\\
+This is more efficient than multiplying $x$ $2^k$ number of times as the number of multiplication which is $O(2^k)$
+
+\clearpage
+\noindent{\bf{12b: (2 points).}}\\
+\noindent{Consider the following algorithm, which takes as input a sequence of $n$ integers $a_1, a_2,\cdots,a_n$ and produces as output a matrix $M=\{m_{ij}\}$ where $m_{ij}$ is the minimum term
+in the sequence of integers $a_i, a_{i+1},\cdots,a_j$ for $j\geq i$ and $m_{ij}=0$ otherwise.}
+\begin{tabbing}
+initialize $M$ so that $m_{ij}=a_i$ if $j\geq i$ and $m_{ij}=0$ otherwise\\
+for \=$i$ := 1 to $n$.\\
+\> for \= $j$ := i + 1 to $n$.\\
+\> \>for \= $k$ := i + 1 to $j$\\
+\> \> \>$m_{ij}$ := min($m_{ij},a_k$)\\
+return $M={m_{ij}}$ \{$m_{ij}$ is the minimum term of $a_i,a_{i+1},\cdots,a_j$\}
+\end{tabbing}
+Show that this algorithm uses $\Omega(n^3)$ comparisons to compute the matrix $M$. Using this fact and part (a), conclude that the algorithms uses $\Theta(n^3)$ comparisons. [Hint: Only consider the cases where $i\leq \frac{n}{4}$ and $j\geq \frac{3n}{4}$ in the two outer loops in the algorithm.]\\
+
+\noindent{The outermost loop ($i$) will run more than $\frac{n}{4}$ times.}
+In other words, $i\geq\frac{n}{4}$ Because of this, the second nested loop ($j$) will run at least $1-i$ times.
+In other words, $j\geq\frac{3n}{4}$. A similar argument can be applied to the innermost loop $k$ to get $k\geq\frac{3n}{4}$.
+Because of this, the algorithm will loop more than $i\times j\times k$ times.\\
+$\displaystyle f(x)\geq \frac{n}{4}\cdot\frac{3n}{4}\cdot\frac{3n}{4}$\\
+$\displaystyle f(x)\geq \frac{9}{64}n^3$\\
+Because of this, the algorithm is $\Omega(n^3)$.\\
+Since the algorithm is both $O(n^3)\AND\Omega(n^3)$, the algorithm must also be $\Theta(n^3)$
+
+\noindent{\bf{14a: (1 points)}}\\
+\noindent{There is a more efficient algorithm (in terms of the number of multiplications and additions used) for evaluating polynomials than the conventional algorithm described in the previous exercise. It is called \textbf{Horner’s method}. This pseudocode shows how to use this method to find the value of $a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0$ at $x=c$.}
+\begin{tabbing}
+\textbf{procedure} Horner($c,a_0,a_1,a_2,\cdots,a_n$: real numbers)\\
+$y:=a_n$\\
+for \=$i:=1 \textrm{ to } n$\\
+\>$y:=y\cdot c+a_{n-i}$\\
+return $y\{y=a_nc^n+a_{n-1}c^{n-1}+\cdots+a_1c+a_0\}$
+\end{tabbing}
+Evaluate $3x^2+x+1$ at $x=2$ by working through each step of the algorithm showing the values assigned at each assignment step.
+\clearpage
+\begin{flalign*}
+    y&:=2               & \textrm{Initial}&\textrm{ Condition}  &&\\
+    y&:=2\cdot2+1=7     & i&=1                                  &&\\
+    y&:=7\cdot2+1=15    & i&=2 \textrm{ return 15}              &&
+\end{flalign*}
+$3x^2+x+1$ evaluated at $x=2$ is $15$.
+
+\noindent{\bf{14b: (1 points)}}\\
+\noindent{Exactly how many multiplications and additions are used by this algorithm to evaluate a polynomial of degree $n$ at $x=c$? (Do not count additions used to increment the loop variable.)}\\
+$n$ multiplications and $n$ additions.\\
+One each in step which we do $n$ times in the for-loop.
+
+\noindent{\bf{20(b,c,e,g): (2 points)}}
+\begin{multicols}{2}
+[
+\noindent{What is the effect in the time required to solve a problem when you double the size of the input from $n$ to $2n$, assuming that the number of milliseconds the algorithm uses to solve the problem with input size $n$ is each of these functions? [Express your answer in the simplest form possible, either as a ratio or a difference. Your answer may be a function of $n$ or a constant.]}
+]
+
+\noindent{$\log{n}$}
+\begin{flalign*}
+     & \log{2n}-\log{n}\\
+    =& \log{\frac{2n}{n}}\\
+    =& \log{2}&&
+\end{flalign*}
+
+\noindent{$100n$}
+\begin{flalign*}
+     & \frac{100(2n)}{100n}\\
+    =& 2&&
+\end{flalign*}
+
+\noindent{$n^2$}
+\begin{flalign*}
+     & \frac{(2n)^2}{n^2}\\
+    =& 4&&
+\end{flalign*}
+
+\noindent{$2^n$}
+\begin{flalign*}
+     & \frac{2^{2n}}{2^n}\\
+    =& 2^n&&
+\end{flalign*}
+\end{multicols}
+
+\clearpage
+\noindent{\bf{42: (2 points)}}\\
+\noindent{Find the complexity of the greedy algorithm for scheduling the most talks by adding at each step the talk with the earliest end time compatible with those already scheduled (Algorithm 7 in Section 3.1). Assume that the talks are not already sorted by earliest end time and assume that the worst-case time complexity of sorting is $O(n\log{n})$.}\\
+
+\noindent{The first step of the greedy algorithm would be to sort the lest by end-time. This would take, at most, $O(n\log{n})$.}\\
+Then the greedy algorithm would traverse the list backwards to greedily schedule meetings by end-time. This process would take, at most, $O(n)$.\\
+Therefore, the algorithm as a whole would take, at most, $O(n\log{n}+n)$ which can be simplified to $O(n\log{n})$.
+
+\end{document}
