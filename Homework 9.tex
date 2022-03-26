@@ -23,8 +23,10 @@
 \newcommand{\XOR}{\oplus}
 \newcommand{\IMPLIES}{\rightarrow}
 \newcommand{\IFF}{\leftrightarrow}
-\providecommand{\myceil}[1]{\left \lceil #1 \right \rceil }
-\providecommand{\myfloor}[1]{\left \lfloor #1 \right \rfloor }
+\providecommand{\ceil}[1]{$\left \lceil #1 \right \rceil$}
+\providecommand{\floor}[1]{$\left \lfloor #1 \right \rfloor$}
+\newcommand{\perm}[2]{{}^{#1}\!P_{#2}}%
+\newcommand{\comb}[2]{{}^{#1}C_{#2}}%
 \newcommand{\powerset}[1]{\mathbb{P}(#1)}
 
 % Actual content starts here.
@@ -85,62 +87,123 @@ On my honor, as an Aggie, I have neither given nor received unauthorized aid on 
 
 \noindent
 {\bf 8: (1 point).}\\
-\noindent
 How many different three-letter initials with none of the letters repeated can people have?
 
 \noindent
-{\bf 16: (2 points).}
-** YOUR ANSWER GOES HERE **
+$\displaystyle26\cdot25\cdot24=15600$
 
 \noindent
-{\bf 28: (1 point).}
-** YOUR ANSWER GOES HERE **
+{\bf 16: (2 points).}\\
+How many strings are there of four lowercase letters that have the letter $x$ in them?\\
+There are a total of $26^4$ four-letter strings. There are $25^4$ strings that do not contain an $x$.\\
+Therefore, the total number of strings that contain the letter $x$ is $26^4-25^4$ or $66351$.
 
 \noindent
-{\bf 48c: (1 point).}
-** YOUR ANSWER GOES HERE **
+{\bf 28: (1 point).}\\
+\noindent
+How many license plates can be made using either three digits followed by three uppercase English letters or three uppercase English letters followed by three digits?\\
+There are 10 digits and 26 uppercase English letters.\\
+Therefore, the total number of license plates that can be made are $2\cdot10^3\cdot26^3$ or $35152000$.
 
+\noindent
+{\bf 48c: (1 point).}\\
+In how many ways can a photographer at a wedding arrange 6 people in a row from a group of 10 people, where the bride and the groom are among these 10 people, if exactly one of the bride and the groom is in the picture?
+
+\noindent
+Since either the bride or the groom be in the picture, that leaves 5 more people to be chosen from the group of 10. Therefore, the total number of wedding arrangements is $\displaystyle2\binom{10}{5}$ or $504$.
+
+\clearpage
 \subsection*{Exercises for Section 6.2:}     
 \noindent
-{\bf 18: (2 points).}
-** YOUR ANSWER GOES HERE **
+{\bf 18: (2 points).}\\
+How many numbers must be selected from the set $\{1,3,5,7,9,11,13,15\}$ to guarantee that at least one pair of these numbers add up to 16?
 
 \noindent
-{\bf 20b: (2 points).}
-** YOUR ANSWER GOES HERE **
+We can split the list into the following four groups: $\{1,15\},\{3,13\},\{5,11\},\{7,9\}$. Using the pigeon hole principle, we can one number from each pair that will not add up to 16. Therefore, at least 5 numbers must be chosen from the list to guarantee that at least one pair of the numbers adds up to 16.
 
 \noindent
-{\bf 40: (2 points).}
-** YOUR ANSWER GOES HERE **
+{\bf 20b: (2 points).}\\
+\noindent
+Suppose that there are nine students in a discrete mathematics class at a small college. Show that the class must have at least three male students or at least seven female students.
 
+\noindent
+Assume that the class has less than 3 male and less than seven female students.
+Then the number of students in the class is: $S=M+F=2+6=8$.\\
+To add an additional student into the class to get a total of nine students, the student has to be either male or female and would cause there to be at least three male students or at least seven female students.
+
+
+\noindent
+{\bf 40: (2 points).}\\
+\noindent
+Find the least number of cables required to connect eight computers to four printers to guarantee that for every choice of four of the eight computers, these four computers can directly access four different printers. Justify your answer.
+
+\noindent
+Connect $C_1$ to $P_1$, $C_2$ to $P_2$, $C_3$ to $P_3$, and $C_4$ to $P_4$. This will create four connections.
+
+\noindent
+Next you connect $C_5$ through $C_8$ to the four printers. This will create an additional sixteen connections.
+
+\noindent
+The total number of connections is 20. With these connections, it is guaranteed through the pigeon hole principle that any four computers are connected to four different printers.
+
+\clearpage
 \subsection*{Exercises for Section 6.3:}     
 
 \noindent
-{\bf 30: (1 point).}
-** YOUR ANSWER GOES HERE **
-
+{\bf 30: (1 point).}\\
+\noindent
+A professor writes 40 discrete mathematics true/false questions. Of the statements in these questions, 17 are true. If the questions can be positioned in any order, how many different answer keys are possible?
 
 \noindent
-{\bf 32b: (1 point).}
-** YOUR ANSWER GOES HERE **
+$\displaystyle\binom{40}{17}$
 
 \noindent
-{\bf 38: (2 points).}
-** YOUR ANSWER GOES HERE **
+{\bf 32b: (1 point).}\\
+Seven women and nine men are on the faculty in the mathematics department at a school. How many ways are there to select a committee of five members of the department if at least one woman and at least one man must be on the committee?
 
+\noindent
+{\bf 38: (2 points).}\\
+How many bit strings contain exactly five 0s and 14 1s if every 0 must be immediately followed by two 1s?
 
+\noindent
+Since every 0 must be immediately followed by two 1s, there exists five blocks of ``011'' and four 1s. This gives us nine objects to order.
+
+\noindent
+Since every block of ``011'' can be swapped without changing the string, we can divide out the number of these arrangements. Similarly, we can divide out the number of arrangements of the ''1'' blocks.
+
+\noindent
+Therefore, the number of strings that fit the criteria is $\displaystyle\frac{9!}{4!\cdot5!}=\binom{9}{4}=\binom{9}{5}$.
+
+\clearpage
 \subsection*{Exercises for Section 6.4:}     
 
 \noindent
-{\bf 8: (1 point).}
-** YOUR ANSWER GOES HERE **
+{\bf 8: (1 point).}\\
+What is the coefficient of $x^8y^9$ in the expansion of $(3x+2y)^{17}$?
 
 \noindent
-{\bf 26b: (2 points).}
-** YOUR ANSWER GOES HERE **
+$\displaystyle(x+y)^n=\sum_{k=0}^n\binom{n}{k}x^{n-k}y^k$\\
+$\displaystyle\binom{17}{8}(3x)^8(2y)^9$\\
+The coefficient would be $\displaystyle\binom{17}{8}\cdot3^8\cdot2^9$
 
 \noindent
-{\bf 32b: (2 points).}
-** YOUR ANSWER GOES HERE **
+{\bf 26b: (2 points).}\\
+Prove the identity $\displaystyle\binom{n}{r}\binom{r}{k}=\binom{n}{k}\binom{n-k}{r-k}$, whenever $n$, $r$, and $k$ are non-negative integers with $r\leq n$ and $k\leq r$, using an argument based on the formula for the number of $r$-combinations of a set with $n$ elements.
+
+\noindent
+{\bf 32b: (2 points).}\\
+Show that if $n$ is a positive integer, then $\displaystyle\binom{2n}{n}=2\binom{n}{2}+n^2$ by algebraic manipulation.
+
+\noindent
+$\displaystyle\binom{2n}{2}=\frac{(2n)!}{2!(2n-2)!}$\\
+$\displaystyle=\frac{(2n)(2n-1)}{2}=2n^2-n$
+
+\noindent
+$\displaystyle2\binom{n}{2}+n^2=2\frac{n!}{2!(n-2)!}+n^2$\\
+$\displaystyle=n(n-1)+n^2=2n^2-n$
+
+\noindent
+$\because\displaystyle\binom{2n}{n}=2n^2-n=\binom{n}{2}$\\
+$\therefore\displaystyle\binom{2n}{n}=\binom{n}{2}$
 
 \end{document}
