@@ -1,4 +1,6 @@
 Textbook/
+Solutions/
+
 *.log
 *.aux
 *.synctex.gz
