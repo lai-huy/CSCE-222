@@ -1,6 +1,8 @@
 Textbook/
 Solutions/
 
+*.gpg
 *.log
 *.aux
 *.synctex.gz
+*.gitattributes
